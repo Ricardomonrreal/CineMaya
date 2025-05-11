@@ -1,0 +1,7 @@
+<div class="character-blocks">
+    <div class="character-block" *ngFor="let pelicula of peliculas">
+      <div class="character-image">
+        <img [src]="pelicula.image" [alt]="pelicula.name">
+      </div>
+    </div>
+  </div>
