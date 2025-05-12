@@ -1,7 +1,39 @@
 <div class="character-blocks">
-    <div class="character-block" *ngFor="let pelicula of peliculas">
+  <div class="character-block" *ngFor="let pelicula of peliculas">
+    <div class="character-content">
       <div class="character-image">
         <img [src]="pelicula.image" [alt]="pelicula.name">
       </div>
     </div>
+    <div class="character-hover-content">
+      <div class="movie-details">
+        <h3>{{ pelicula.name }}</h3>
+        <p class="clasificacion-badge">{{ pelicula.clasificacion }}</p>
+        <div class="cines-info">
+          <h4>Disponible en:</h4>
+          <ul>
+            <li *ngFor="let cine of pelicula.cines">{{ cine }}</li>
+          </ul>
+        </div>
+        <div class="horarios-info">
+          <h4>Horarios:</h4>
+          <div *ngFor="let horario of pelicula.horarios" class="horario-cine">
+            <p class="cine-name">{{ horario.cine }}</p>
+            <div class="sesiones">
+              <div class="nav-links">
+                <a 
+                  *ngFor="let sesion of horario.sesiones"
+                  class="sesion-badge-link"
+                  [routerLink]="'/horario'"
+                  routerLinkActive="active-link"
+                >
+                  {{ sesion }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>

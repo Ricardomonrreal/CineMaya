@@ -10,4 +10,8 @@ export const routes: Routes = [
         path: '**',
         redirectTo: '',
     }
+    /*{
+        path: 'horario',
+        component: BoletosComponent,
+    }*/
 ];  
