@@ -1,0 +1,62 @@
+<div class="seat-selection-container">
+  <!-- Pantalla del cine -->
+  <div class="screen-container">
+    <div class="screen">PANTALLA</div>
+  </div>
+
+  <!-- Información de leyenda -->
+  <div class="seat-legend">
+    <div class="legend-item">
+      <div class="seat available"></div>
+      <span>Disponible</span>
+    </div>
+    <div class="legend-item">
+      <div class="seat selected"></div>
+      <span>Seleccionado</span>
+    </div>
+    <div class="legend-item">
+      <div class="seat occupied"></div>
+      <span>Ocupado</span>
+    </div>
+  </div>
+
+  <!-- Mapa de asientos -->
+  <div class="seating-map">
+    <div class="row" *ngFor="let row of seatingLayout; let rowIndex = index">
+      <div class="row-label">{{ getRowLabel(rowIndex) }}</div>
+      <div 
+        *ngFor="let seat of row; let seatIndex = index" 
+        class="seat" 
+        [ngClass]="{
+          'available': seat === 'available',
+          'occupied': seat === 'occupied',
+          'selected': isSeatSelected(rowIndex, seatIndex),
+          'empty': seat === 'empty'
+        }"
+        (click)="selectSeat(rowIndex, seatIndex)"
+      >
+        <span *ngIf="seat !== 'empty'">{{ seatIndex + 1 }}</span>
+      </div>
+      <div class="row-label">{{ getRowLabel(rowIndex) }}</div>
+    </div>
+  </div>
+
+  <!-- Resumen de selección -->
+  <div class="selection-summary">
+    <p>Asientos seleccionados: <span *ngFor="let seat of selectedSeats; let last = last">{{ seat }}{{ !last ? ', ' : '' }}</span></p>
+    <p>Total: {{ selectedSeats.length }} asiento(s)</p>
+        <button class="continue-btn" 
+                [disabled]="selectedSeats.length === 0" 
+                (click)="onContinue()">
+        Continuar
+        </button>
+            <div class="success-modal-overlay" *ngIf="showSuccessMessage">
+            <div class="success-modal">
+                <h2>🎉 ¡Felicidades!</h2>
+                <p>Has seleccionado tus asientos con éxito.</p>
+                <h3>Asientos: {{ selectedSeats }} </h3>
+                <button class="close-btn" (click)="showSuccessMessage = false">Cerrar</button>
+            </div>
+            </div>
+    </div>
+</div>
