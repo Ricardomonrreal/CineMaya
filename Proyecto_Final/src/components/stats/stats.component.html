@@ -1,0 +1,43 @@
+<div class="dashboard-container">
+  <h1>Dashboard de Datos CSV</h1>
+  
+  <div class="file-upload-section">
+    <h2>Cargar Archivo CSV</h2>
+    <input type="file" accept=".csv" (change)="handleFileUpload($event)" class="file-input">
+    <div *ngIf="isLoading" class="loading-message">Procesando archivo...</div>
+    <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+    <div *ngIf="csvData.length > 0" class="success-message">Archivo cargado correctamente. {{csvData.length}} registros procesados.</div>
+  </div>
+  
+  <div *ngIf="csvData.length > 0" class="charts-container">
+    <div class="charts">
+      <div class="chart-wrapper dark-theme">
+        <h3>Total de Entradas Vendidas por Cine</h3>
+        <div *ngIf="pieChartData1.datasets[0].data.length > 0" class="chart-container">
+          <canvas baseChart
+                  [data]="pieChartData1"
+                  [options]="pieChartOptions"
+                  [type]="pieChartType">
+          </canvas>
+        </div>
+        <div *ngIf="pieChartData1.datasets[0].data.length === 0" class="no-data-message">
+          No hay datos disponibles para esta métrica.
+        </div>
+      </div>
+      
+      <div class="chart-wrapper dark-theme">
+        <h3>Total de Entradas Vendidas por Película</h3>
+        <div *ngIf="pieChartData2.datasets[0].data.length > 0" class="chart-container">
+          <canvas baseChart
+                  [data]="pieChartData2"
+                  [options]="pieChartOptions"
+                  [type]="pieChartType">
+          </canvas>
+        </div>
+        <div *ngIf="pieChartData2.datasets[0].data.length === 0" class="no-data-message">
+          No hay datos disponibles para esta métrica.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

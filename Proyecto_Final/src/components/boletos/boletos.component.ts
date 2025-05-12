@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
     selector: 'app-boletos',
     templateUrl: './boletos.component.html',
-    styleUrls: ['./boletos.component.css']  // <- corrección aquí
+    styleUrls: ['./boletos.component.css'] 
 })
 export class BoletosComponent {
     seatingLayout = [
