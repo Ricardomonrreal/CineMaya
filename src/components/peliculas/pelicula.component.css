@@ -1,0 +1,202 @@
+.character-blocks {
+  margin: 100px auto 20px; /* Margen superior para evitar solapar con el nav */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacio uniforme entre tarjetas */
+  max-width: 1200px;
+  padding: 0 20px;
+  width: 100%;
+  z-index: 1; /* Menor que la barra de navegación */
+}
+
+.character-block {
+  background-color: transparent;
+  border: 2px solid #08142c;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: calc(33.333% - 20px); /* Exactamente 3 por fila con el gap incluido */
+  position: relative;
+  height: auto; 
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  margin-bottom: 20px; /* Espaciado vertical entre filas */
+}
+
+.character-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px #08142c9c;
+}
+
+.character-hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  background-color: rgba(8, 20, 44, 0.95);
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.character-content {
+  transition: opacity 0.3s ease;
+  height: 100%;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%; /* aquí se reduce o aumenta el espacio de arriba o abajo del poster */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.character-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.character-block:hover .character-image,
+.character-block:hover .character-info {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.character-block:hover .character-info h3,
+.character-block:hover .character-info p {
+  font-size: 0;
+}
+
+.character-block:hover .character-hover-content {
+  opacity: 1;
+}
+
+/* Estilos para el contenido del hover */
+.movie-details {
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-details h3 {
+  color: #FAF5E9;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  text-align: center;
+  margin: 0 auto 5px auto; /* centra el elemento y aplica margen inferior */
+}
+
+.clasificacion-badge {
+  background-color: #ff3d4e;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 auto 15px;
+  text-align: center;
+  width: fit-content;
+}
+
+.cines-info h4,
+.horarios-info h4 {
+  color: #ff3d4e;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.cines-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.cines-info li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 2px 0;
+  color: white;
+}
+
+.horario-cine {
+  margin-bottom: 10px;
+}
+
+.cine-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: white;
+}
+
+.sesiones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.sesion-badge {
+  background-color: rgba(255, 61, 78, 0.2);
+  border: 1px solid #ff3d4e;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+  .character-block {
+    width: calc(50% - 20px); /* 2 por fila en tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .character-block {
+    width: calc(100% - 20px); /* 1 por fila en móviles */
+  }
+}
+
+
+.sesion-badge-link {
+  background-color: rgba(255, 61, 78, 0.2);
+  margin: 2px;
+  border: 1px solid #ff3d4e;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 4px 10px 4px 10px;
+  justify-content: center;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sesion-badge-link:hover {
+  background-color: #ff3d4e;
+  transform: scale(1.05);
+}

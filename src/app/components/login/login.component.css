@@ -1,0 +1,111 @@
+/* Fondo general */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #001634, #003366);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Contenedor centrado */
+.login-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caja del login */
+.login-box {
+  background-color: #002244;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+}
+
+/* Título */
+.login-box h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+/* Campo de entrada */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1a2a40;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+input:focus {
+  outline: 2px solid #3399ff;
+}
+
+/* Grupo de botones */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3399ff;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2678cc;
+}
+
+.btn-secondary {
+  background-color: #1a4a80;
+}
+
+.btn-secondary:hover {
+  background-color: #133a66;
+}
+
+/* Mensaje de error */
+.error-message {
+  margin-top: 1.2rem;
+  color: #ff4d4d;
+  font-size: 0.95rem;
+}

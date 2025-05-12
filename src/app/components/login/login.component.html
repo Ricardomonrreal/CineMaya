@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <div class="login-box">
+    <h2>🎬 CineMaya</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Usuario</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          required
+          placeholder="Ingrese su usuario"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Ingrese su contraseña"
+        />
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn">Ingresar</button>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>
+
