@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { PeliculasComponent } from '../components/peliculas/pelicula.component'
+import { BoletosComponent } from '../components/boletos/boletos.component'
 
 export const routes: Routes = [
     {
@@ -7,11 +8,11 @@ export const routes: Routes = [
         component: PeliculasComponent,
     },
     {
+        path: 'horario',
+        component: BoletosComponent,
+    },
+    {
         path: '**',
         redirectTo: '',
     }
-    /*{
-        path: 'horario',
-        component: BoletosComponent,
-    }*/
 ];  
